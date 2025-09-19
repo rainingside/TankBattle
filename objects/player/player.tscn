@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://baraj87xwkld6"]
+
+[ext_resource type="Texture2D" uid="uid://bqncyvuny5n3h" path="res://assets/tank/tankBody_blue.png" id="1_cqmt1"]
+[ext_resource type="Script" uid="uid://buhlljl6bgeh2" path="res://objects/player/player.gd" id="1_gnkmh"]
+[ext_resource type="Texture2D" uid="uid://7g2pff50pssw" path="res://assets/tank/tankBlue_barrel.png" id="2_jnjyq"]
+[ext_resource type="Script" uid="uid://3wcwnh6680ss" path="res://components/attack/hitbox.gd" id="3_gnkmh"]
+[ext_resource type="Script" uid="uid://hdjjsf0bea2e" path="res://components/move/move_by_player_component.gd" id="4_xkryw"]
+[ext_resource type="Script" uid="uid://b274sf82dd0p2" path="res://components/barrel/barrel_control_by_mouse_component.gd" id="6_xkryw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
+size = Vector2(30, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4kly"]
+size = Vector2(28, 24)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_gnkmh")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_cqmt1")
+
+[node name="Barrel" type="Sprite2D" parent="."]
+texture = ExtResource("2_jnjyq")
+offset = Vector2(13, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ow0dq")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_gnkmh")
+metadata/_custom_type_script = "uid://3wcwnh6680ss"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_m4kly")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="MoveByPlayerComponent" type="Node" parent="Components" node_paths=PackedStringArray("Target")]
+script = ExtResource("4_xkryw")
+Target = NodePath("../..")
+LeftAction = "move_left"
+RightAction = "move_right"
+UpAction = "move_up"
+DownAction = "move_down"
+metadata/_custom_type_script = "uid://hdjjsf0bea2e"
+
+[node name="BarrelControlByMouseComponent" type="Node" parent="Components" node_paths=PackedStringArray("Target")]
+script = ExtResource("6_xkryw")
+Target = NodePath("../../Barrel")
+metadata/_custom_type_script = "uid://b274sf82dd0p2"
