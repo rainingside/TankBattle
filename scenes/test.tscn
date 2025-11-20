@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=4 uid="uid://pcylf13uf08x"]
+
+[ext_resource type="PackedScene" uid="uid://bwie0dryun1mm" path="res://objects/bullet/bullet.tscn" id="1_bl13t"]
+[ext_resource type="Texture2D" uid="uid://c4h32d328r5ws" path="res://assets/map/color.jpg" id="1_lpvoh"]
+[ext_resource type="Script" uid="uid://bef8d2ci86k8j" path="res://components/attack/damage.gd" id="2_74lek"]
+[ext_resource type="PackedScene" uid="uid://baraj87xwkld6" path="res://objects/player/player.tscn" id="2_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://dhwc26ms3xa3j" path="res://objects/enemy/enemy.tscn" id="5_j5jx5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_at5dv"]
+texture = ExtResource("1_lpvoh")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_j5jx5"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 32
+physics_layer_0/collision_mask = 7
+sources/1 = SubResource("TileSetAtlasSource_at5dv")
+
+[sub_resource type="Resource" id="Resource_iyx0m"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 40
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
+
+[sub_resource type="Resource" id="Resource_74lek"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 50
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
+
+[sub_resource type="Resource" id="Resource_j5jx5"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 10
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
+
+[sub_resource type="Resource" id="Resource_lpvoh"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 20
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
+
+[node name="Test" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAYAAAAAQAAAAAAAAAYAAEAAQAAAAAAAAAYAAIAAQAAAAAAAAAYAAMAAQAAAAAAAAAYAAQAAQAAAAAAAAAYAAUAAQAAAAAAAAAYAAYAAQAAAAAAAAAYAAcAAQAAAAAAAAAYAAgAAQAAAAAAAAAYAAkAAQAAAAAAAAAYAAoAAQAAAAAAAAAYAAsAAQAAAAAAAAAYAAwAAQAAAAAAAAAYAA0AAQAAAAAAAAAYAA4AAQAAAAAAAAAXAA4AAQAAAAAAAAAWAA4AAQAAAAAAAAAVAA4AAQAAAAAAAAAUAA4AAQAAAAAAAAATAA4AAQAAAAAAAAASAA4AAQAAAAAAAAARAA4AAQAAAAAAAAAQAA4AAQAAAAAAAAAPAA4AAQAAAAAAAAAOAA4AAQAAAAAAAAANAA4AAQAAAAAAAAAMAA4AAQAAAAAAAAALAA4AAQAAAAAAAAAKAA4AAQAAAAAAAAAJAA4AAQAAAAAAAAAIAA4AAQAAAAAAAAAHAA4AAQAAAAAAAAAGAA4AAQAAAAAAAAAFAA4AAQAAAAAAAAAEAA4AAQAAAAAAAAADAA4AAQAAAAAAAAACAA4AAQAAAAAAAAAJAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAMAAYAAQAAAAAAAAANAAYAAQAAAAAAAAAOAAYAAQAAAAAAAAAUAAMAAQAAAAAAAAAUAAQAAQAAAAAAAAAUAAUAAQAAAAAAAAAUAAYAAQAAAAAAAAAUAAcAAQAAAAAAAAAUAAgAAQAAAAAAAAAUAAkAAQAAAAAAAAABAA4AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAsAAQAAAAAAAAAAAAwAAQAAAAAAAAAAAA0AAQAAAAAAAAAAAA4AAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAASAAAAAQAAAAAAAAATAAAAAQAAAAAAAAAUAAAAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAXAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_j5jx5")
+
+[node name="Bullet" parent="." instance=ExtResource("1_bl13t")]
+position = Vector2(242, 224)
+Speed = 100
+BulletDamage = SubResource("Resource_iyx0m")
+
+[node name="Bullet2" parent="." instance=ExtResource("1_bl13t")]
+position = Vector2(178, 179)
+BulletDamage = SubResource("Resource_74lek")
+
+[node name="Player" parent="." instance=ExtResource("2_iyx0m")]
+position = Vector2(116, 106)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_j5jx5")]
+position = Vector2(174, 347)
+EnemyDamage = SubResource("Resource_j5jx5")
+
+[node name="Enemy" parent="." instance=ExtResource("5_j5jx5")]
+position = Vector2(492, 115)
+EnemyDamage = SubResource("Resource_lpvoh")

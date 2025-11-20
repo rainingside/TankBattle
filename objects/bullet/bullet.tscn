@@ -1,6 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwie0dryun1mm"]
+[gd_scene load_steps=8 format=3 uid="uid://bwie0dryun1mm"]
 
 [ext_resource type="Script" uid="uid://dj01bchpe5oed" path="res://objects/bullet/bullet.gd" id="1_ofkrt"]
+[ext_resource type="Texture2D" uid="uid://bhvve0g7f5rnf" path="res://assets/tank/bulletBlue.png" id="2_g08x3"]
+[ext_resource type="Script" uid="uid://cxah0ibyuowfa" path="res://components/attack/hurtbox.gd" id="3_b7usj"]
+[ext_resource type="Script" uid="uid://3wcwnh6680ss" path="res://components/attack/hitbox.gd" id="4_31544"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7usj"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akdrl"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vibid"]
+size = Vector2(18, 6)
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 35
 script = ExtResource("1_ofkrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_g08x3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b7usj")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+script = ExtResource("4_31544")
+metadata/_custom_type_script = "uid://3wcwnh6680ss"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_akdrl")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("3_b7usj")
+metadata/_custom_type_script = "uid://cxah0ibyuowfa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_vibid")
+
+[node name="BulletRecycleTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true

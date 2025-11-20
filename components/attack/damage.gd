@@ -1,4 +1,5 @@
 class_name Damage
 extends Resource
 
-@export var HurtValue:int
+@export var DamageFrom: Enums.DamageFroms
+@export var Attack:int
