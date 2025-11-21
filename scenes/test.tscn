@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://pcylf13uf08x"]
+[gd_scene load_steps=15 format=4 uid="uid://pcylf13uf08x"]
 
 [ext_resource type="PackedScene" uid="uid://bwie0dryun1mm" path="res://objects/bullet/bullet.tscn" id="1_bl13t"]
 [ext_resource type="Texture2D" uid="uid://c4h32d328r5ws" path="res://assets/map/color.jpg" id="1_lpvoh"]
@@ -42,6 +42,24 @@ DamageFrom = 1
 Attack = 20
 metadata/_custom_type_script = "uid://bef8d2ci86k8j"
 
+[sub_resource type="Resource" id="Resource_at5dv"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 10
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
+
+[sub_resource type="Resource" id="Resource_jcd4p"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 30
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
+
+[sub_resource type="Resource" id="Resource_uacia"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 25
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
+
 [node name="Test" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -67,3 +85,15 @@ EnemyDamage = SubResource("Resource_j5jx5")
 [node name="Enemy" parent="." instance=ExtResource("5_j5jx5")]
 position = Vector2(492, 115)
 EnemyDamage = SubResource("Resource_lpvoh")
+
+[node name="Enemy3" parent="." instance=ExtResource("5_j5jx5")]
+position = Vector2(432, 314)
+EnemyDamage = SubResource("Resource_at5dv")
+
+[node name="Enemy4" parent="." instance=ExtResource("5_j5jx5")]
+position = Vector2(432, 315)
+EnemyDamage = SubResource("Resource_jcd4p")
+
+[node name="Enemy5" parent="." instance=ExtResource("5_j5jx5")]
+position = Vector2(728, 228)
+EnemyDamage = SubResource("Resource_uacia")

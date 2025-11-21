@@ -73,15 +73,15 @@ func on_ai_timer_timeout() -> void:
 	randomize()
 	isOperate = randi_range(0, 1)
 	if isOperate == 1:
-		var x = randf_range(0, 1)
-		var y = randf_range(0, 1)
+		var x = randf_range(-1, 1)
+		var y = randf_range(-1, 1)
 		p_change_direction(Vector2(x, y))
 	
 	randomize()
 	isOperate = randi_range(0, 1)
 	if isOperate:
-		var x = randf_range(0, 1)
-		var y = randf_range(0, 1)
+		var x = randf_range(-1, 1)
+		var y = randf_range(-1, 1)
 		p_look_at_dir(Vector2(x, y))
 	
 	isOperate = randi_range(0, 1)
