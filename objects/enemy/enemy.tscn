@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhwc26ms3xa3j"]
+[gd_scene load_steps=13 format=3 uid="uid://dhwc26ms3xa3j"]
 
 [ext_resource type="Script" uid="uid://bdld71tj210mj" path="res://objects/enemy/enemy.gd" id="1_5y7ac"]
 [ext_resource type="Texture2D" uid="uid://b3364jf7uu5hj" path="res://assets/tank/tankBody_red.png" id="2_1rjq7"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cxah0ibyuowfa" path="res://components/attack/hurtbox.gd" id="4_esv4w"]
 [ext_resource type="PackedScene" uid="uid://6ursko1icgvt" path="res://objects/health/healthDisplay.tscn" id="5_c38me"]
 [ext_resource type="Script" uid="uid://bj1t2l3b0gobt" path="res://components/fire/fire_component.gd" id="6_gnbxk"]
+[ext_resource type="Script" uid="uid://dl3op1daj3n4w" path="res://components/bullet/straight_bullet_fire.gd" id="7_5umcj"]
+[ext_resource type="PackedScene" uid="uid://cvmbgqxgh1suj" path="res://objects/bullet/bullet.tscn" id="8_itxuh"]
 
 [sub_resource type="Resource" id="Resource_5umcj"]
 script = ExtResource("2_c38me")
@@ -56,11 +58,17 @@ offset_right = 86.0
 offset_bottom = 1.0
 scale = Vector2(0.3, 0.3)
 
-[node name="FireComponent" type="Node" parent="." node_paths=PackedStringArray("Target", "FireMarker")]
+[node name="StraightLineBulletFire" type="Node" parent="."]
+script = ExtResource("7_5umcj")
+BulletScene = ExtResource("8_itxuh")
+metadata/_custom_type_script = "uid://dl3op1daj3n4w"
+
+[node name="FireComponent" type="Node" parent="." node_paths=PackedStringArray("Target", "FireMarker", "BulletFire")]
 script = ExtResource("6_gnbxk")
 Target = NodePath("..")
 FireMarker = NodePath("../Barrel/Marker2D")
 FireInternal = 0.5
+BulletFire = NodePath("../StraightLineBulletFire")
 metadata/_custom_type_script = "uid://bj1t2l3b0gobt"
 
 [node name="AITimer" type="Timer" parent="."]

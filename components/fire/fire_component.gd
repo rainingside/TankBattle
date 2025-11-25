@@ -4,11 +4,11 @@ extends Node
 @export var Target:CharacterBody2D
 @export var FireMarker:Marker2D
 @export var FireInternal:float
+@export var BulletFire: IBulletFire
 
 var CanFire: bool = true
 var WillFire: bool = false
 
-var m_bullet_scene: PackedScene = preload(Constants.ScenePaths.Bullet)
 var m_fire_timer: Timer = Timer.new()
 
 func _ready() -> void:
@@ -27,7 +27,7 @@ func fire() -> void:
 	m_fire_timer.stop()
 	CanFire = false
 	WillFire = false
-	var bullet = m_bullet_scene.instantiate() as Bullet
+	
 	var damage:Damage
 	if Target is Player:
 		damage = Target.PlayerDamage
@@ -36,8 +36,7 @@ func fire() -> void:
 	else :
 		return
 	
-	bullet.p_init_data(FireMarker.global_position, FireMarker.global_position - Target.global_position, damage)
-	add_child(bullet)
+	BulletFire.p_fire(self, FireMarker.global_position, FireMarker.global_position - Target.global_position, damage)
 	
 	m_fire_timer.start()
 

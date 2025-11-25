@@ -1,6 +1,7 @@
 class_name Bullet
 extends Area2D
 
+@export var Length:int = 20
 @export var Speed: int = 800
 @export var Direction: Vector2 = Vector2(1, 0)
 @export var BulletDamage: Damage = Damage.new()
@@ -11,7 +12,7 @@ extends Area2D
 
 func p_init_data(gposition: Vector2, dir: Vector2, damage: Damage) -> void:
 	global_position = gposition
-	Direction = dir
+	Direction = dir.normalized()
 	BulletDamage = damage
 
 func _ready() -> void:

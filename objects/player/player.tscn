@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://baraj87xwkld6"]
+[gd_scene load_steps=17 format=3 uid="uid://baraj87xwkld6"]
 
 [ext_resource type="Texture2D" uid="uid://bqncyvuny5n3h" path="res://assets/tank/tankBody_blue.png" id="1_cqmt1"]
 [ext_resource type="Script" uid="uid://buhlljl6bgeh2" path="res://objects/player/player.gd" id="1_gnkmh"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://cxah0ibyuowfa" path="res://components/attack/hurtbox.gd" id="4_xkryw"]
 [ext_resource type="Script" uid="uid://bj1t2l3b0gobt" path="res://components/fire/fire_component.gd" id="5_xkryw"]
 [ext_resource type="PackedScene" uid="uid://6ursko1icgvt" path="res://objects/health/healthDisplay.tscn" id="7_ow0dq"]
+[ext_resource type="Script" uid="uid://dqic51hr6x3fh" path="res://components/bullet/circle_bullet_fire.gd" id="9_psowp"]
+[ext_resource type="Script" uid="uid://dl3op1daj3n4w" path="res://components/bullet/straight_bullet_fire.gd" id="9_xgwla"]
+[ext_resource type="PackedScene" uid="uid://cvmbgqxgh1suj" path="res://objects/bullet/bullet.tscn" id="10_bi5m7"]
+[ext_resource type="Script" uid="uid://fcjuyg5qqgq" path="res://components/bullet/sector_bullet_fire.gd" id="12_45urx"]
 
 [sub_resource type="Resource" id="Resource_xgwla"]
 script = ExtResource("2_ow0dq")
@@ -60,11 +64,25 @@ offset = Vector2(13, 0)
 [node name="Marker2D" type="Marker2D" parent="Barrel"]
 position = Vector2(28, 0)
 
-[node name="FireComponent" type="Node" parent="." node_paths=PackedStringArray("Target", "FireMarker")]
+[node name="StraightLineBulletFire" type="Node" parent="."]
+script = ExtResource("9_xgwla")
+Nums = 4
+Distance = 20
+BulletScene = ExtResource("10_bi5m7")
+metadata/_custom_type_script = "uid://dl3op1daj3n4w"
+
+[node name="CircleBulletFire" type="Node" parent="."]
+script = ExtResource("9_psowp")
+Nums = 36
+BulletScene = ExtResource("10_bi5m7")
+metadata/_custom_type_script = "uid://dqic51hr6x3fh"
+
+[node name="FireComponent" type="Node" parent="." node_paths=PackedStringArray("Target", "FireMarker", "BulletFire")]
 script = ExtResource("5_xkryw")
 Target = NodePath("..")
 FireMarker = NodePath("../Barrel/Marker2D")
 FireInternal = 0.5
+BulletFire = NodePath("../SectorBulletFire")
 metadata/_custom_type_script = "uid://bj1t2l3b0gobt"
 
 [node name="HealthDisplay" parent="." instance=ExtResource("7_ow0dq")]
@@ -78,3 +96,10 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
+
+[node name="SectorBulletFire" type="Node" parent="."]
+script = ExtResource("12_45urx")
+Nums = 10
+Arc = 90
+BulletScene = ExtResource("10_bi5m7")
+metadata/_custom_type_script = "uid://fcjuyg5qqgq"
