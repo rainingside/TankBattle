@@ -7,7 +7,9 @@ enum DamageFroms {
 	Enemy = 1
 }
 
-## 子弹种类
-enum BulletKinds {
-	StraightLine
+## 武器种类
+enum WeaponKinds {
+	Straight = 0, # 直线发射
+	Circle = 1, # 圆形发射
+	Sector = 2 # 扇形发射
 }

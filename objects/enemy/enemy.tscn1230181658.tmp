@@ -1,11 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhwc26ms3xa3j"]
+[gd_scene load_steps=11 format=3 uid="uid://dhwc26ms3xa3j"]
 
 [ext_resource type="Script" uid="uid://bdld71tj210mj" path="res://objects/enemy/enemy.gd" id="1_5y7ac"]
 [ext_resource type="Texture2D" uid="uid://b3364jf7uu5hj" path="res://assets/tank/tankBody_red.png" id="2_1rjq7"]
+[ext_resource type="Script" uid="uid://bsxrlq40371a4" path="res://components/health/health.gd" id="2_c38me"]
 [ext_resource type="Texture2D" uid="uid://beh6wkfu67hv0" path="res://assets/tank/tankRed_barrel.png" id="3_vc3w8"]
 [ext_resource type="Script" uid="uid://cxah0ibyuowfa" path="res://components/attack/hurtbox.gd" id="4_esv4w"]
 [ext_resource type="PackedScene" uid="uid://6ursko1icgvt" path="res://objects/health/healthDisplay.tscn" id="5_c38me"]
 [ext_resource type="Script" uid="uid://bj1t2l3b0gobt" path="res://components/fire/fire_component.gd" id="6_gnbxk"]
+
+[sub_resource type="Resource" id="Resource_5umcj"]
+script = ExtResource("2_c38me")
+HP = 100
+metadata/_custom_type_script = "uid://bsxrlq40371a4"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c38me"]
 size = Vector2(26, 25)
@@ -19,6 +25,7 @@ collision_layer = 2
 collision_mask = 35
 motion_mode = 1
 script = ExtResource("1_5y7ac")
+EnemyHealth = SubResource("Resource_5umcj")
 
 [node name="Body" type="Sprite2D" parent="."]
 texture = ExtResource("2_1rjq7")
@@ -54,6 +61,8 @@ script = ExtResource("6_gnbxk")
 Target = NodePath("..")
 FireMarker = NodePath("../Barrel/Marker2D")
 FireInternal = 0.5
+BulletFire = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://components/bullet/circle_bullet_fire.gd"),"Nums":10,"BulletScene":Resource("res://objects/bullet/bullet.tscn"),"metadata/_custom_type_script":"uid://dqic51hr6x3fh")
+
 metadata/_custom_type_script = "uid://bj1t2l3b0gobt"
 
 [node name="AITimer" type="Timer" parent="."]

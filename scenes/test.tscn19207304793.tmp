@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://pcylf13uf08x"]
+[gd_scene load_steps=16 format=4 uid="uid://pcylf13uf08x"]
 
 [ext_resource type="PackedScene" uid="uid://cvmbgqxgh1suj" path="res://objects/bullet/bullet.tscn" id="1_bl13t"]
 [ext_resource type="Texture2D" uid="uid://c4h32d328r5ws" path="res://assets/map/color.jpg" id="1_lpvoh"]
@@ -6,10 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://baraj87xwkld6" path="res://objects/player/player.tscn" id="2_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://dhwc26ms3xa3j" path="res://objects/enemy/enemy.tscn" id="5_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://coe1ybklx2b8o" path="res://objects/weapon_pickup/weapon_pickup.tscn" id="6_lpvoh"]
-[ext_resource type="Script" uid="uid://bsxrlq40371a4" path="res://components/health/health.gd" id="6_yk7ts"]
-[ext_resource type="Script" uid="uid://mr4ycdcb56y3" path="res://components/weapon/circle_weapon.gd" id="7_at5dv"]
-[ext_resource type="Script" uid="uid://b0ofmoesj5qga" path="res://components/weapon/sector_weapon.gd" id="8_uacia"]
-[ext_resource type="Script" uid="uid://b0cpu4u58wb2e" path="res://components/weapon/straight_weapon.gd" id="9_yk7ts"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_at5dv"]
 texture = ExtResource("1_lpvoh")
@@ -35,10 +31,11 @@ DamageFrom = 1
 Attack = 50
 metadata/_custom_type_script = "uid://bef8d2ci86k8j"
 
-[sub_resource type="Resource" id="Resource_44saj"]
-script = ExtResource("6_yk7ts")
-HP = 100
-metadata/_custom_type_script = "uid://bsxrlq40371a4"
+[sub_resource type="Resource" id="Resource_j5jx5"]
+script = ExtResource("2_74lek")
+DamageFrom = 1
+Attack = 10
+metadata/_custom_type_script = "uid://bef8d2ci86k8j"
 
 [sub_resource type="Resource" id="Resource_lpvoh"]
 script = ExtResource("2_74lek")
@@ -46,52 +43,11 @@ DamageFrom = 1
 Attack = 20
 metadata/_custom_type_script = "uid://bef8d2ci86k8j"
 
-[sub_resource type="Resource" id="Resource_7mbro"]
-script = ExtResource("7_at5dv")
-Nums = 36
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://mr4ycdcb56y3"
-
-[sub_resource type="Resource" id="Resource_ff6ho"]
-script = ExtResource("6_yk7ts")
-HP = 100
-metadata/_custom_type_script = "uid://bsxrlq40371a4"
-
-[sub_resource type="Resource" id="Resource_j5jx5"]
-script = ExtResource("2_74lek")
-DamageFrom = 1
-Attack = 10
-metadata/_custom_type_script = "uid://bef8d2ci86k8j"
-
-[sub_resource type="Resource" id="Resource_7yos8"]
-script = ExtResource("8_uacia")
-Nums = 25
-Arc = 135
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://b0ofmoesj5qga"
-
-[sub_resource type="Resource" id="Resource_5jxlq"]
-script = ExtResource("6_yk7ts")
-HP = 100
-metadata/_custom_type_script = "uid://bsxrlq40371a4"
-
 [sub_resource type="Resource" id="Resource_at5dv"]
 script = ExtResource("2_74lek")
 DamageFrom = 1
 Attack = 10
 metadata/_custom_type_script = "uid://bef8d2ci86k8j"
-
-[sub_resource type="Resource" id="Resource_xrtyr"]
-script = ExtResource("9_yk7ts")
-Nums = 3
-Distance = 10
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://b0cpu4u58wb2e"
-
-[sub_resource type="Resource" id="Resource_daiq8"]
-script = ExtResource("6_yk7ts")
-HP = 100
-metadata/_custom_type_script = "uid://bsxrlq40371a4"
 
 [sub_resource type="Resource" id="Resource_jcd4p"]
 script = ExtResource("2_74lek")
@@ -99,50 +55,11 @@ DamageFrom = 1
 Attack = 30
 metadata/_custom_type_script = "uid://bef8d2ci86k8j"
 
-[sub_resource type="Resource" id="Resource_c6rvn"]
-script = ExtResource("8_uacia")
-Nums = 9
-Arc = 45
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://b0ofmoesj5qga"
-
-[sub_resource type="Resource" id="Resource_n74k2"]
-script = ExtResource("6_yk7ts")
-HP = 100
-metadata/_custom_type_script = "uid://bsxrlq40371a4"
-
 [sub_resource type="Resource" id="Resource_uacia"]
 script = ExtResource("2_74lek")
 DamageFrom = 1
 Attack = 25
 metadata/_custom_type_script = "uid://bef8d2ci86k8j"
-
-[sub_resource type="Resource" id="Resource_si7kk"]
-script = ExtResource("9_yk7ts")
-Nums = 3
-Distance = 20
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://b0cpu4u58wb2e"
-
-[sub_resource type="Resource" id="Resource_yk7ts"]
-script = ExtResource("7_at5dv")
-Nums = 12
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://mr4ycdcb56y3"
-
-[sub_resource type="Resource" id="Resource_ajshl"]
-script = ExtResource("8_uacia")
-Nums = 10
-Arc = 90
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://b0ofmoesj5qga"
-
-[sub_resource type="Resource" id="Resource_ghpyy"]
-script = ExtResource("9_yk7ts")
-Nums = 5
-Distance = 10
-BulletScene = ExtResource("1_bl13t")
-metadata/_custom_type_script = "uid://b0cpu4u58wb2e"
 
 [node name="Test" type="Node2D"]
 
@@ -162,47 +79,25 @@ BulletDamage = SubResource("Resource_74lek")
 [node name="Player" parent="." instance=ExtResource("2_iyx0m")]
 position = Vector2(116, 106)
 
-[node name="Enemy" parent="." instance=ExtResource("5_j5jx5")]
-position = Vector2(492, 115)
-EnemyHealth = SubResource("Resource_44saj")
-EnemyDamage = SubResource("Resource_lpvoh")
-Weapon = SubResource("Resource_7mbro")
-
 [node name="Enemy2" parent="." instance=ExtResource("5_j5jx5")]
 position = Vector2(174, 347)
-EnemyHealth = SubResource("Resource_ff6ho")
 EnemyDamage = SubResource("Resource_j5jx5")
-Weapon = SubResource("Resource_7yos8")
+
+[node name="Enemy" parent="." instance=ExtResource("5_j5jx5")]
+position = Vector2(492, 115)
+EnemyDamage = SubResource("Resource_lpvoh")
 
 [node name="Enemy3" parent="." instance=ExtResource("5_j5jx5")]
 position = Vector2(432, 314)
-EnemyHealth = SubResource("Resource_5jxlq")
 EnemyDamage = SubResource("Resource_at5dv")
-Weapon = SubResource("Resource_xrtyr")
 
 [node name="Enemy4" parent="." instance=ExtResource("5_j5jx5")]
 position = Vector2(432, 315)
-EnemyHealth = SubResource("Resource_daiq8")
 EnemyDamage = SubResource("Resource_jcd4p")
-Weapon = SubResource("Resource_c6rvn")
 
 [node name="Enemy5" parent="." instance=ExtResource("5_j5jx5")]
 position = Vector2(728, 228)
-EnemyHealth = SubResource("Resource_n74k2")
 EnemyDamage = SubResource("Resource_uacia")
-Weapon = SubResource("Resource_si7kk")
 
 [node name="WeaponPickup" parent="." instance=ExtResource("6_lpvoh")]
-position = Vector2(109, 229)
-Weapon = SubResource("Resource_yk7ts")
-BulletFiredText = "圆形"
-
-[node name="WeaponPickup2" parent="." instance=ExtResource("6_lpvoh")]
-position = Vector2(319, 359)
-Weapon = SubResource("Resource_ajshl")
-BulletFiredText = "扇形"
-
-[node name="WeaponPickup3" parent="." instance=ExtResource("6_lpvoh")]
-position = Vector2(585, 230)
-Weapon = SubResource("Resource_ghpyy")
-BulletFiredText = "直线"
+position = Vector2(320, 131)

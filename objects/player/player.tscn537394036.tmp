@@ -65,6 +65,8 @@ script = ExtResource("5_xkryw")
 Target = NodePath("..")
 FireMarker = NodePath("../Barrel/Marker2D")
 FireInternal = 0.5
+BulletFire = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://components/bullet/straight_bullet_fire.gd"),"Nums":4,"Distance":20,"BulletScene":Resource("res://objects/bullet/bullet.tscn"),"metadata/_custom_type_script":"uid://dl3op1daj3n4w")
+
 metadata/_custom_type_script = "uid://bj1t2l3b0gobt"
 
 [node name="HealthDisplay" parent="." instance=ExtResource("7_ow0dq")]

@@ -61,3 +61,6 @@ func on_hurtbox_hit(damage: Damage) -> void:
 	m_health_display.p_set_hp(PlayerHealth.HP)
 	if PlayerHealth.HP == 0:
 		queue_free()
+
+func p_pickup_weapon(weapon: IWeapon) -> void:
+	m_fire_component.p_pickup_weapon(weapon)

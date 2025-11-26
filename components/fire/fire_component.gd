@@ -4,7 +4,7 @@ extends Node
 @export var Target:CharacterBody2D
 @export var FireMarker:Marker2D
 @export var FireInternal:float
-@export var BulletFire: IBulletFire
+@export var Weapon: IWeapon
 
 var CanFire: bool = true
 var WillFire: bool = false
@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	fire()
 
 func fire() -> void:
-	if !CanFire or !WillFire:
+	if !CanFire or !WillFire or Weapon == null:
 		return
 	
 	m_fire_timer.stop()
@@ -36,7 +36,7 @@ func fire() -> void:
 	else :
 		return
 	
-	BulletFire.p_fire(self, FireMarker.global_position, FireMarker.global_position - Target.global_position, damage)
+	GweaponFirer.p_get_firer(Weapon.WeaponKind).p_fire(self, FireMarker.global_position, FireMarker.global_position - Target.global_position, damage, Weapon)
 	
 	m_fire_timer.start()
 
@@ -45,3 +45,6 @@ func p_fire() -> void:
 
 func on_fire_timer_timeout() -> void:
 	CanFire = true
+
+func p_pickup_weapon(weapon: IWeapon) -> void:
+	Weapon = weapon

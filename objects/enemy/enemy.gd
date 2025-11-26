@@ -6,6 +6,7 @@ var SpeedRestore:int = 300
 @export var Speed:int = 300
 var Direction:Vector2 = Vector2(1, 0)
 @export var EnemyDamage:Damage
+@export var Weapon:IWeapon
 
 @onready var m_body: Sprite2D = $Body
 @onready var m_barrel: Sprite2D = $Barrel
@@ -25,10 +26,9 @@ func p_init_data(gposition: Vector2, dir: Vector2, speed: int, health: Health, d
 	EnemyDamage.DamageFrom = Enums.DamageFroms.Enemy
 
 func _ready() -> void:
-	EnemyHealth = EnemyHealth.duplicate()
-	EnemyDamage = EnemyDamage.duplicate()
 	m_hurtbox.hit.connect(on_hurtbox_hit)
 	m_ai_timer.timeout.connect(on_ai_timer_timeout)
+	m_fire_component.p_pickup_weapon(Weapon)
 	p_change_direction(Direction);
 	p_look_at_dir(Direction);
 	
