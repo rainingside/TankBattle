@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var FireAction:String
 
 @export var PlayerHealth:Health
-@export var Speed:int = 400
+@export var Speed:int = 200
 var Direction:Vector2 = Vector2(1, 0)
 @export var PlayerDamage:Damage = Damage.new()
 

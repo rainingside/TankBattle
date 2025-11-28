@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var EnemyHealth:Health
 var SpeedRestore:int = 300
-@export var Speed:int = 300
+@export var Speed:int = 200
 var Direction:Vector2 = Vector2(1, 0)
 @export var EnemyDamage:Damage
 @export var Weapon:IWeapon

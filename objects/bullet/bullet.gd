@@ -2,7 +2,7 @@ class_name Bullet
 extends Area2D
 
 @export var Length:int = 20
-@export var Speed: int = 800
+@export var Speed: int = 400
 @export var Direction: Vector2 = Vector2(1, 0)
 @export var BulletDamage: Damage = Damage.new()
 

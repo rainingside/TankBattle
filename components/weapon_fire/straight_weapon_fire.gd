@@ -6,9 +6,18 @@ func p_fire(parent:Node, gposition: Vector2, dir: Vector2, damage: Damage, weapo
 		return
 	for i in range(weapon.Nums):
 		var bullet = weapon.BulletScene.instantiate() as Bullet
-		var waittime = i * float(weapon.Distance + bullet.Length) / bullet.Speed
-		parent.get_tree().create_timer(waittime).timeout.connect(func(): on_delay(parent, gposition, dir, damage, bullet))
+		var waittime:float = i * float(weapon.Distance + bullet.Length) / bullet.Speed
+		var new_gposition = gposition - i * dir.normalized() * (weapon.Distance + bullet.Length)
+		bullet.p_init_data(new_gposition, dir, damage)
+		bullet.visible = false
+		bullet.monitoring = false
+		bullet.monitorable = false
+		parent.add_child(bullet)
+		parent.get_tree().create_timer(waittime).timeout.connect(func(): on_delay(bullet))
 
-func on_delay(parent:Node, gposition: Vector2, dir: Vector2, damage: Damage, bullet: Bullet) -> void:
-	bullet.p_init_data(gposition, dir, damage)
-	parent.add_child(bullet)
+func on_delay(bullet: Bullet) -> void:
+	if !bullet:
+		return
+	bullet.visible = true
+	bullet.monitoring = true
+	bullet.monitorable = true

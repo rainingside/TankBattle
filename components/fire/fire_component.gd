@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 
 func fire() -> void:
 	if !CanFire or !WillFire or Weapon == null:
+		WillFire = false
 		return
 	
 	m_fire_timer.stop()
