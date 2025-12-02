@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c38l5ml6kxy5d"]
+
+[ext_resource type="Script" uid="uid://c5mkq2gms31vd" path="res://objects/upgrade_pickup/upgrade.gd" id="1_3avep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8qow"]
+radius = 16.0
+
+[node name="Upgrade" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_3avep")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f8qow")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -39.0
+offset_right = 25.0
+offset_bottom = -16.0
+theme_override_font_sizes/font_size = 16
+text = "+20"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

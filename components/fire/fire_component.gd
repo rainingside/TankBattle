@@ -5,11 +5,19 @@ extends Node
 @export var FireMarker:Marker2D
 @export var FireInternal:float
 @export var Weapon: IWeapon
+@export var BulletSpeed:int
+@export var BulletPierce:int
 
 var CanFire: bool = true
 var WillFire: bool = false
 
 var m_fire_timer: Timer = Timer.new()
+
+func p_init(fire_internal: float, weapon: IWeapon, bullet_speed: int, bullet_pierce: int) -> void:
+	FireInternal = fire_internal
+	Weapon = weapon
+	BulletSpeed = bullet_speed
+	BulletPierce = bullet_pierce
 
 func _ready() -> void:
 	m_fire_timer.wait_time = FireInternal
@@ -37,7 +45,7 @@ func fire() -> void:
 	else :
 		return
 	
-	GweaponFirer.p_get_firer(Weapon.WeaponKind).p_fire(self, FireMarker.global_position, FireMarker.global_position - Target.global_position, damage, Weapon)
+	GweaponFirer.p_get_firer(Weapon.WeaponKind).p_fire(self, FireMarker.global_position, FireMarker.global_position - Target.global_position, BulletSpeed, BulletPierce, damage, Weapon)
 	
 	m_fire_timer.start()
 
@@ -46,6 +54,7 @@ func p_fire() -> void:
 
 func on_fire_timer_timeout() -> void:
 	CanFire = true
+	m_fire_timer.wait_time = FireInternal
 
 func p_pickup_weapon(weapon: IWeapon) -> void:
 	Weapon = weapon

@@ -1,24 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://baraj87xwkld6"]
+[gd_scene load_steps=9 format=3 uid="uid://baraj87xwkld6"]
 
 [ext_resource type="Texture2D" uid="uid://bqncyvuny5n3h" path="res://assets/tank/tankBody_blue.png" id="1_cqmt1"]
 [ext_resource type="Script" uid="uid://buhlljl6bgeh2" path="res://objects/player/player.gd" id="1_gnkmh"]
 [ext_resource type="Texture2D" uid="uid://7g2pff50pssw" path="res://assets/tank/tankBlue_barrel.png" id="2_jnjyq"]
-[ext_resource type="Script" uid="uid://bsxrlq40371a4" path="res://components/health/health.gd" id="2_ow0dq"]
-[ext_resource type="Script" uid="uid://bef8d2ci86k8j" path="res://components/attack/damage.gd" id="3_m4kly"]
 [ext_resource type="Script" uid="uid://cxah0ibyuowfa" path="res://components/attack/hurtbox.gd" id="4_xkryw"]
 [ext_resource type="Script" uid="uid://bj1t2l3b0gobt" path="res://components/fire/fire_component.gd" id="5_xkryw"]
 [ext_resource type="PackedScene" uid="uid://6ursko1icgvt" path="res://objects/health/healthDisplay.tscn" id="7_ow0dq"]
-
-[sub_resource type="Resource" id="Resource_xgwla"]
-script = ExtResource("2_ow0dq")
-HP = 100
-metadata/_custom_type_script = "uid://bsxrlq40371a4"
-
-[sub_resource type="Resource" id="Resource_bi5m7"]
-script = ExtResource("3_m4kly")
-DamageFrom = 0
-Attack = 20
-metadata/_custom_type_script = "uid://bef8d2ci86k8j"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
 size = Vector2(30, 26)
@@ -35,8 +22,6 @@ MoveRightAction = "move_right"
 MoveUpAction = "move_up"
 MoveDownAction = "move_down"
 FireAction = "fire"
-PlayerHealth = SubResource("Resource_xgwla")
-PlayerDamage = SubResource("Resource_bi5m7")
 
 [node name="Body" type="Sprite2D" parent="."]
 texture = ExtResource("1_cqmt1")
