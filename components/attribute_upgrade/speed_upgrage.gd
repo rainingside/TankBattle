@@ -3,5 +3,8 @@ extends ITankAttributeUpgrade
 
 @export var Speed: int = 50
 
-func _p_apply_upgrade(attribute: TankAttribute) -> void:
+func _init() -> void:
+	UpgradeText = "速度"
+
+func p_apply_upgrade(attribute: TankAttribute) -> void:
 	attribute.Speed += Speed

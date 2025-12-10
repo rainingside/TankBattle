@@ -45,7 +45,7 @@ func fire() -> void:
 	else :
 		return
 	
-	GweaponFirer.p_get_firer(Weapon.WeaponKind).p_fire(self, FireMarker.global_position, FireMarker.global_position - Target.global_position, BulletSpeed, BulletPierce, damage, Weapon)
+	GweaponHelper.p_get_firer(Weapon.WeaponKind).p_fire(self, FireMarker.global_position, FireMarker.global_position - Target.global_position, BulletSpeed, BulletPierce, damage, Weapon)
 	
 	m_fire_timer.start()
 

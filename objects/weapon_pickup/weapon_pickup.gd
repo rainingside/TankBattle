@@ -1,4 +1,5 @@
 extends Area2D
+class_name WeaponPickup
 
 @export var Weapon:IWeapon
 @export var BulletFiredText:String

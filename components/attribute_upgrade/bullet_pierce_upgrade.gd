@@ -1,7 +1,10 @@
 class_name BulletPierceUpgrade
 extends ITankAttributeUpgrade
 
-@export var BulletPierce:int
+@export var BulletPierce:int = 1
 
-func _p_apply_upgrade(attribute: TankAttribute) -> void:
+func _init() -> void:
+	UpgradeText = "穿透"
+
+func p_apply_upgrade(attribute: TankAttribute) -> void:
 	attribute.BulletPierce += BulletPierce

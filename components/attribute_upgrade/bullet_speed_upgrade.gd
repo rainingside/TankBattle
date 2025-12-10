@@ -1,7 +1,10 @@
 class_name BulletSpeedUpgrade
 extends ITankAttributeUpgrade
 
-@export var BulletSpeed:int
+@export var BulletSpeed:int = 100
 
-func _p_apply_upgrade(attribute: TankAttribute) -> void:
+func _init() -> void:
+	UpgradeText = "子弹速度"
+
+func p_apply_upgrade(attribute: TankAttribute) -> void:
 	attribute.BulletSpeed += BulletSpeed

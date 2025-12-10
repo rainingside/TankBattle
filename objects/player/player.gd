@@ -33,7 +33,7 @@ func _ready() -> void:
 	
 	PlayerDamage = Damage.new()
 	PlayerDamage.p_init(Enums.DamageFroms.Player, PlayerAttribute.BulletAttack)
-	m_fire_component.p_init(PlayerAttribute.FireInternal, null, PlayerAttribute.BulletSpeed, PlayerAttribute.BulletPierce)
+	m_fire_component.p_init(PlayerAttribute.FireInternal, GweaponHelper.p_get_random_weapon(), PlayerAttribute.BulletSpeed, PlayerAttribute.BulletPierce)
 	m_hurtbox.hurt.connect(on_hurtbox_hurt)
 	change_direction(Direction);
 

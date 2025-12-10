@@ -55,3 +55,12 @@ signal bullet_pierce_changed
 			return
 		BulletPierce = new_value
 		bullet_pierce_changed.emit()
+
+
+func p_init(hp:int, speed:int, fire_internal:float, bullet_attack:int, bullet_speed:int, bullet_pierce:int) -> void:
+	HP = hp
+	Speed = speed
+	FireInternal = fire_internal
+	BulletAttack = bullet_attack
+	BulletSpeed = bullet_speed
+	BulletPierce = bullet_pierce

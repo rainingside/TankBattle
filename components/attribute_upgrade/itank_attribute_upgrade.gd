@@ -3,5 +3,5 @@ extends Resource
 
 @export var UpgradeText:String
 
-func _p_apply_upgrade(attribute: TankAttribute) -> void:
+func p_apply_upgrade(attribute: TankAttribute) -> void:
 	pass

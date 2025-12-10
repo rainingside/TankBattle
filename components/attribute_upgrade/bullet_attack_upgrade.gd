@@ -1,7 +1,10 @@
 class_name BulletAttackUpgrade
 extends ITankAttributeUpgrade
 
-@export var BulletAttack:int
+@export var BulletAttack:int = 10
 
-func _p_apply_upgrade(attribute: TankAttribute) -> void:
+func _init() -> void:
+	UpgradeText = "攻击"
+
+func p_apply_upgrade(attribute: TankAttribute) -> void:
 	attribute.BulletAttack += BulletAttack

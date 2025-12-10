@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dii6jmkmqcinx"]
+
+[ext_resource type="Script" uid="uid://b8osfkol2put2" path="res://objects/birth_place/birth_place.gd" id="1_bputv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox6"]
+size = Vector2(32, 32)
+
+[node name="BirthPlace" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_bputv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvox6")

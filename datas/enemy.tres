@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TankAttribute" load_steps=2 format=3 uid="uid://d0cwynfrhn13b"]
+
+[ext_resource type="Script" uid="uid://cshav5cf0vyl6" path="res://components/attribute/tank_attribute.gd" id="1_3qm0i"]
+
+[resource]
+script = ExtResource("1_3qm0i")
+HP = 100
+Speed = 200
+FireInternal = 0.5
+BulletAttack = 10
+BulletSpeed = 400
+BulletPierce = 0
+metadata/_custom_type_script = "uid://cshav5cf0vyl6"

@@ -15,10 +15,11 @@ var EnemyDamage:Damage
 @onready var m_fire_component: FireComponent = $FireComponent
 @onready var m_ai_timer: Timer = $AITimer
 
-func p_init_data(gposition: Vector2, dir: Vector2, attr: TankAttribute) -> void:
+func p_init(gposition: Vector2, dir: Vector2, attr: TankAttribute, weapon:IWeapon) -> void:
 	global_position = gposition
 	Direction = dir.normalized()
 	EnemyAttribute = attr
+	Weapon = weapon
 
 func _ready() -> void:
 	EnemyAttribute.hp_changed.connect(on_hp_changed)
@@ -36,6 +37,7 @@ func _ready() -> void:
 	
 	m_hurtbox.hurt.connect(on_hurtbox_hurt)
 	m_ai_timer.timeout.connect(on_ai_timer_timeout)
+	
 	p_change_direction(Direction);
 	p_look_at_dir(Direction);
 	
@@ -106,6 +108,3 @@ func on_ai_timer_timeout() -> void:
 	isOperate = randi_range(0, 1)
 	if isOperate:
 		m_fire_component.p_fire()
-	
-	
-	
